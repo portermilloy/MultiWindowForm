@@ -14,15 +14,24 @@ namespace MultiWindowForm
     {
         private MainForm _mainForm;
         private int CustomerCount = 0;
-
+        private bool IsEditing;
         public NewCustomerForm(MainForm form)
         {
             InitializeComponent();
             _mainForm = form;
             CustomerCount++;
+            IsEditing = false;
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
+        public void ToggleEdit(bool newState)
+        {
+            IsEditing = newState;
+
+            // tell the main form what our customer looks like
+            _mainForm.EditCustomer(0, new Customer());
+        }
+
+        private void CreateCustomer()
         {
             // validation
 
@@ -40,7 +49,27 @@ namespace MultiWindowForm
             // send that data to the AddCustomer function on the parent form
             _mainForm.AddCustomer(customer);
             CustomerCount++;
+        }
 
+        private void EditCustomer()
+        {
+            MessageBox.Show("Form is being edited.");
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            if (IsEditing)
+            {
+                
+
+                // edit the item in place
+                EditCustomer();
+            }
+            else
+            {
+                // creat a new customer
+                CreateCustomer();
+            }
 
             ClearForm();
 

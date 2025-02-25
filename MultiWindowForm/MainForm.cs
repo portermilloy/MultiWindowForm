@@ -41,6 +41,11 @@ namespace MultiWindowForm
             ReloadDataGrid();
         }
 
+        public void EditCustomer(int id, Customer updatedCustomer)
+        {
+            MessageBox.Show("Main form is editing the customer now.");
+        }
+
         private void btnEditCustomer_Click(object sender, EventArgs e)
         {
             
@@ -56,6 +61,8 @@ namespace MultiWindowForm
 
             // load the customer into the form
             _customerForm.LoadCustomer(cust);
+
+            _customerForm.ToggleEdit(true);
 
             // show the form
             _customerForm.Show();
