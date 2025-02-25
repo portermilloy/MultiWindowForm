@@ -63,8 +63,10 @@
             dgvCustomers.MultiSelect = false;
             dgvCustomers.Name = "dgvCustomers";
             dgvCustomers.RowHeadersWidth = 51;
+            dgvCustomers.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvCustomers.Size = new Size(776, 383);
             dgvCustomers.TabIndex = 1;
+            dgvCustomers.CellContentClick += dgvCustomers_CellContentClick;
             // 
             // customerIdDataGridViewTextBoxColumn
             // 
