@@ -33,6 +33,11 @@ namespace MultiWindowForm
         private void CreateCustomer()
         {
             // validation
+            if (!CheckValidity())
+            {
+                // show an error
+                // return and try again
+            }
 
 
             // create a custoemr and load it with data from the form
@@ -50,9 +55,19 @@ namespace MultiWindowForm
             CustomerCount++;
         }
 
+        private bool CheckValidity()
+        {
+            // some logic here to validate the various inputs
+
+            // return if valid
+
+            return 
+        }
+
         private void EditCustomer()
         {
-            
+            // validators here, exit early if invalid
+
             // tell the main form what our customer looks like
             _mainForm.EditCustomer(CurrentSelectionId, new Customer
             {
