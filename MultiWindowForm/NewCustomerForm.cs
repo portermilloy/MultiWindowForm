@@ -33,10 +33,20 @@ namespace MultiWindowForm
         private void CreateCustomer()
         {
             // validation
-            if (!CheckValidity())
+            if (CheckValidity(txtName))
             {
-                // show an error
-                // return and try again
+                MessageBox.Show("Name is empty, please provide a Name.");
+                return;
+            }
+            if (CheckValidity(txtEmail))
+            {
+                MessageBox.Show("Email is empty, please provide an Email.");
+                return;
+            }
+            if (CheckValidity(txtPhoneNumber))
+            {
+                MessageBox.Show("Phone Number is empty, please provide a Phone Number.");
+                return;
             }
 
 
@@ -55,18 +65,31 @@ namespace MultiWindowForm
             CustomerCount++;
         }
 
-        private bool CheckValidity()
+        
+
+        private bool CheckValidity(Control control)
         {
-            // some logic here to validate the various inputs
-
-            // return if valid
-
-            return 
+            return control.Text == "";
         }
 
         private void EditCustomer()
         {
             // validators here, exit early if invalid
+            if (CheckValidity(txtName))
+            {
+                MessageBox.Show("Name is empty, please provide a Name.");
+                return;
+            }
+            if (CheckValidity(txtEmail))
+            {
+                MessageBox.Show("Email is empty, please provide an Email.");
+                return;
+            }
+            if (CheckValidity(txtPhoneNumber))
+            {
+                MessageBox.Show("Phone Number is empty, please provide a Phone Number.");
+                return;
+            }
 
             // tell the main form what our customer looks like
             _mainForm.EditCustomer(CurrentSelectionId, new Customer
